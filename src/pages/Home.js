@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Typography, Grid, MuiTextField } from "@material-ui/core";
+import { Button, Typography, Grid, MuiTextField, Card, CardContent  } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Formik, Form, Field } from "formik";
+
 import {
   fieldToTextField,
   TextField,
@@ -20,6 +21,11 @@ import Header from "../components/Header";
 const useStyles = makeStyles({
   testStyle: {
     fontStyle: "oblique",
+  },
+  root: {
+    margin: '0 auto',
+    marginTop: '2rem',
+    width: 275,
   },
 });
 export default function Home() {
@@ -55,8 +61,11 @@ export default function Home() {
       }, 500);
     }}
       >
+      {({ submitForm, isSubmitting }) => (
+      <Card className={classes.root}>
+      <CardContent>
         <Form>
-       
+
             <Field
             component={TextField}
               name="email"
@@ -73,11 +82,15 @@ export default function Home() {
             <Button
               variant="contained"
               color="primary"
-              
+              onClick={submitForm}
             >
               Submit
             </Button>
         </Form>
+        </CardContent>
+
+        </Card>
+        )}
       </Formik>
     </Grid>
   );

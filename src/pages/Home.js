@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Typography, Grid, MuiTextField, Card, CardContent  } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Formik, Form, Field } from "formik";
-
+import SideBar from '../components/SideBar'
 import {
   fieldToTextField,
   TextField,
@@ -92,6 +92,7 @@ export default function Home() {
         </Card>
         )}
       </Formik>
+      <SideBar/>
     </Grid>
   );
 
